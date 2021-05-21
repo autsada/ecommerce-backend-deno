@@ -1,0 +1,4 @@
+.env
+
+db/product-data.ts
+db/product-images
