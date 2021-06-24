@@ -1,4 +1,4 @@
-import { Application, oakCors, config } from './deps.ts'
+import { Application, oakCors, parse } from './deps.ts'
 
 import { productsRouter } from './router/productsRouter.ts'
 import { authRouter } from './router/authRouter.ts'
@@ -11,16 +11,17 @@ import { adminRouter } from './router/adminRouter.ts'
 import { getRefreshToken } from './middlewares/getRefreshtoken.ts'
 import { errorHandling } from './middlewares/errorHandling.ts'
 
-const { PORT } = config()
+// const { PORT } = config()
+const PORT = parse(Deno.args).port
 
 // Application
 const app = new Application()
 
 app.use(
-  oakCors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  })
+    oakCors({
+        origin: 'http://localhost:3000',
+        credentials: true,
+    })
 )
 
 // Error Handling Middleware
@@ -62,9 +63,9 @@ app.use(adminRouter.allowedMethods())
 
 // Not found middleware
 app.use((ctx) => {
-  ctx.response.status = 404
-  ctx.response.body = 'Not found.'
+    ctx.response.status = 404
+    ctx.response.body = 'Not found.'
 })
 
 console.log(`The server is starting up at port: ${PORT}`)
-await app.listen({ port: +PORT })
+await app.listen({ port: PORT ? +PORT : 4000 })

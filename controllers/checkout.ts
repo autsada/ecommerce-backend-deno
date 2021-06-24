@@ -1,4 +1,4 @@
-import { RouterMiddleware, config } from '../deps.ts'
+import { RouterMiddleware } from '../deps.ts'
 
 import { runQuery } from '../db/db.ts'
 import {
@@ -13,7 +13,9 @@ import {
 import { Address, Cart, CartDetail, User } from '../types/types.ts'
 import { calculateCartAmount } from '../utils/helpers.ts'
 
-const { STRIPE_SECRET_KEY } = config()
+// const { STRIPE_SECRET_KEY } = config()
+
+const STRIPE_SECRET_KEY = Deno.env.get("STRIPE_SECRET_KEY")!
 
 export const selectAddress: RouterMiddleware = async (ctx) => {
   try {
