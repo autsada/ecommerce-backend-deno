@@ -10,8 +10,6 @@ const PGPORT = Deno.env.get('PGPORT')
 
 const POOL_CONNECTIONS = 20
 
-console.log('PG Database: ', PGDATABASE)
-
 // const pool = new Pool(
 //     {
 //         applicationName: PGAPPNAME,
@@ -36,7 +34,7 @@ const pool = new Pool(
         hostname: PGHOST,
         port: PGPORT || 5432,
         tls: {
-            enforce: false,
+            enforce: true,
         },
     },
     POOL_CONNECTIONS
