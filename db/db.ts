@@ -1,16 +1,17 @@
 import { Pool, PoolClient, config } from '../deps.ts'
 
-const { DB_DATABASE, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = config()
+const { PGAPPNAME, PGDATABASE, PGUSER, PGPASSWORD, PGHOST, PGPORT } = config()
 
 const POOL_CONNECTIONS = 20
 
 const pool = new Pool(
     {
-        database: DB_DATABASE,
-        user: DB_USER,
-        password: DB_PASSWORD,
-        hostname: DB_HOST,
-        port: +DB_PORT,
+        applicationName: PGAPPNAME,
+        database: PGDATABASE,
+        user: PGUSER,
+        password: PGPASSWORD,
+        hostname: PGHOST,
+        port: +PGPORT,
         tls: {
             enforce: false,
         },
