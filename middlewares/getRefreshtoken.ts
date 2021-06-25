@@ -2,8 +2,6 @@ import { Middleware } from '../deps.ts'
 
 import { verifyRefreshToken } from '../utils/tokens.ts'
 
-// const { TK_NAME } = config()
-
 const TK_NAME = Deno.env.get('TK_NAME')!
 
 export const getRefreshToken: Middleware = async (ctx, next) => {

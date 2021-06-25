@@ -3,12 +3,9 @@ import {
     getNumericDate,
     Header,
     Payload,
-    // config,
     Cookies,
     verify,
 } from '../deps.ts'
-
-// const { TK_REFRESH_KEY, TK_ACCESS_KEY, TK_NAME } = config()
 
 const header: Header = {
     alg: 'HS256',

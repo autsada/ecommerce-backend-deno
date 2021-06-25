@@ -11,7 +11,6 @@ import { adminRouter } from './router/adminRouter.ts'
 import { getRefreshToken } from './middlewares/getRefreshtoken.ts'
 import { errorHandling } from './middlewares/errorHandling.ts'
 
-// const { PORT } = config()
 const PORT = parse(Deno.args).port
 
 // Application

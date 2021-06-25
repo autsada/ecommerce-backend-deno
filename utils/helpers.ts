@@ -2,13 +2,6 @@ import { FormDataFile, createHash } from '../deps.ts'
 
 import { CartItemDetail } from '../types/types.ts'
 
-// const {
-//     SENDGRID_API_KEY,
-//     CLOUDINARY_API_KEY,
-//     CLOUDINARY_API_SECRET,
-//     CLOUDINARY_BASE_URL,
-// } = config()
-
 const SENDGRID_API_KEY = Deno.env.get('SENDGRID_API_KEY')!
 const CLOUDINARY_API_KEY = Deno.env.get('CLOUDINARY_API_KEY')!
 const CLOUDINARY_API_SECRET = Deno.env.get('CLOUDINARY_API_SECRET')!

@@ -13,8 +13,6 @@ import {
 import { Address, Cart, CartDetail, User } from '../types/types.ts'
 import { calculateCartAmount } from '../utils/helpers.ts'
 
-// const { STRIPE_SECRET_KEY } = config()
-
 const STRIPE_SECRET_KEY = Deno.env.get("STRIPE_SECRET_KEY")!
 
 export const selectAddress: RouterMiddleware = async (ctx) => {
