@@ -17,9 +17,6 @@ const pool = new Pool(
         password: PGPASSWORD,
         hostname: PGHOST,
         port: PGPORT || 5432,
-        tls: {
-            enforce: false,
-        },
     },
     POOL_CONNECTIONS
 )
